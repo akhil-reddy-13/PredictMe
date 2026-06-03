@@ -4,6 +4,7 @@ import { IntroScreen } from './components/IntroScreen';
 import { MathScreen } from './components/MathScreen';
 import { PrimerScreen } from './components/PrimerScreen';
 import { ResultScreen } from './components/ResultScreen';
+import { SiteFooter } from './components/SiteFooter';
 import { clearAllSimulationCaches } from './engine/distribution';
 import { initialState, submitAnswer } from './engine/game';
 import { fitSessionPsychometric } from './engine/stats';
@@ -62,41 +63,42 @@ export default function App() {
     setPhase(finalState ? 'result' : 'intro');
   }, [finalState]);
 
-  if (phase === 'intro') {
-    return <IntroScreen onContinue={handleIntroContinue} />;
-  }
+  let content: React.ReactNode;
 
-  if (phase === 'primer') {
-    return (
+  if (phase === 'intro') {
+    content = <IntroScreen onContinue={handleIntroContinue} />;
+  } else if (phase === 'primer') {
+    content = (
       <PrimerScreen onStart={handleStartGame} onBack={() => setPhase('intro')} />
     );
-  }
-
-  if (phase === 'playing') {
-    return (
+  } else if (phase === 'playing') {
+    content = (
       <GameScreen
         state={state}
         onAnswer={handleAnswer}
         onComplete={handleComplete}
       />
     );
-  }
-
-  if (phase === 'result' && finalState) {
-    return (
+  } else if (phase === 'result' && finalState) {
+    content = (
       <ResultScreen
         state={finalState}
         onPlayAgain={handlePlayAgain}
         onSeeMath={handleSeeMath}
       />
     );
-  }
-
-  if (phase === 'math') {
-    return (
+  } else if (phase === 'math') {
+    content = (
       <MathScreen state={finalState ?? state} onBack={handleMathBack} />
     );
+  } else {
+    content = <IntroScreen onContinue={handleIntroContinue} />;
   }
 
-  return <IntroScreen onContinue={handleIntroContinue} />;
+  return (
+    <div className="flex min-h-svh flex-col">
+      <main className="flex-1">{content}</main>
+      <SiteFooter />
+    </div>
+  );
 }
