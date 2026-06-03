@@ -6,6 +6,7 @@ import { BoundaryComparison } from './BoundaryComparison';
 import { GhostsGallery } from './GhostsGallery';
 import { PsychometricChart } from './PsychometricChart';
 import { SamplingDistributionChart } from './SamplingDistributionChart';
+import { WriteupLink } from './WriteupLink';
 
 interface ResultScreenProps {
   state: SessionState;
@@ -60,7 +61,7 @@ export function ResultScreen({
             {fpPct}%
           </p>
           <p className="text-neutral-700">
-            false-positive rate: you called{' '}
+            false-positive rate (Type I): you called{' '}
             <span className="font-medium text-neutral-900">pattern</span> on pure
             noise {analysis.patternSaidOnNoise} out of {analysis.noiseTrials}{' '}
             times.
@@ -131,7 +132,7 @@ export function ResultScreen({
           </p>
           {analysis.threshold != null && (
             <p className="font-sans text-sm leading-relaxed text-neutral-600">
-              You were ~75% accurate once true correlation reached about ρ ≈{' '}
+              Your fitted curve crosses P(pattern) = 0.5 near ρ ≈{' '}
               {analysis.threshold.toFixed(2)} — weaker real patterns were easier
               to miss.
             </p>
@@ -182,6 +183,7 @@ export function ResultScreen({
               see the math
             </button>
           </div>
+          <WriteupLink variant="footer" className="mt-8" />
         </section>
       )}
     </div>

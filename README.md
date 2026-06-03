@@ -1,6 +1,9 @@
 # Pattern or Noise?
 
-Is this a real correlation — or random noise? Judge scatterplots one at a time; the debrief shows your false-positive rate and how you compare to a statistical tilt threshold.
+Is this a real correlation — or random noise? Judge scatterplots one at a time; the debrief shows your false-positive rate and how you compare to a null sampling-distribution cutoff.
+
+**Play:** [pattern-or-noise.vercel.app](https://pattern-or-noise.vercel.app/)  
+**Write-up:** [Overleaf](https://www.overleaf.com/read/qjrhyjqdpnjt#3e99a1)
 
 ## Stack
 

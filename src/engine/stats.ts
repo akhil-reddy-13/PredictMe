@@ -105,7 +105,7 @@ export function sessionAnalysis(state: SessionState) {
   const fpRate = falsePositiveRate(state.records);
   const accuracy = overallAccuracy(state.records);
   const byRho = hitRateByRho(state.records);
-  const threshold = detectionThreshold(weights, 0.75);
+  const threshold = detectionThreshold(weights, 0.5);
   const noiseTrials = state.records.filter((r) => !r.hasPattern).length;
   const patternSaidOnNoise = Math.round(fpRate * noiseTrials);
   const expectedFp = 0.05 * noiseTrials;

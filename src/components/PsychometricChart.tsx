@@ -51,9 +51,9 @@ export function PsychometricChart({
         />
         <line
           x1={pad.left}
-          y1={toY(0.75)}
+          y1={toY(0.5)}
           x2={pad.left + innerW}
-          y2={toY(0.75)}
+          y2={toY(0.5)}
           stroke="#d4d4d4"
           strokeDasharray="2 3"
         />
@@ -108,7 +108,7 @@ export function PsychometricChart({
             />
             <circle
               cx={toX(threshold)}
-              cy={toY(0.75)}
+              cy={toY(0.5)}
               r="4"
               className="fill-neutral-900"
             />
@@ -117,7 +117,7 @@ export function PsychometricChart({
       </svg>
       {threshold != null && (
         <p className="font-mono text-sm text-neutral-600">
-          ~75% accurate at ρ ≈ {threshold.toFixed(2)}
+          P(pattern) = 0.5 at ρ ≈ {threshold.toFixed(2)}
         </p>
       )}
     </div>

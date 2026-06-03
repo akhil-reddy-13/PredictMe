@@ -17,11 +17,11 @@ export function PrimerScreen({ onStart, onBack }: PrimerScreenProps) {
             how we tell pattern from noise
           </h2>
           <p className="text-sm leading-relaxed text-neutral-600">
-            Each round shows {POINT_COUNT} dots. Some rounds are{' '}
-            <strong className="text-neutral-800">real patterns</strong> — the
-            dots truly tend to line up. Others are{' '}
-            <strong className="text-neutral-800">noise</strong> — no real
-            relationship, just random scatter.
+            Each round shows {POINT_COUNT} dots from a bivariate normal. This
+            session has 8 <strong className="text-neutral-800">noise</strong>{' '}
+            rounds (ρ = 0) and 12{' '}
+            <strong className="text-neutral-800">pattern</strong> rounds (real
+            correlation), shuffled.
           </p>
           <p className="text-sm leading-relaxed text-neutral-600">
             <strong className="text-neutral-800">You</strong> judge by eye:
@@ -33,7 +33,8 @@ export function PrimerScreen({ onStart, onBack }: PrimerScreenProps) {
             +1). On noise, that score usually stays near zero — but small random
             tilts happen all the time — that is the sampling distribution of r̂
             under noise. We draw many random noise plots (bootstrap-style) to
-            learn that distribution, and only call
+            learn that distribution (5,000 null draws, like the write-up), and
+            only call
             &quot;pattern&quot; if the tilt is at least about{' '}
             <span className="font-mono text-neutral-900">
               ±{rCrit.toFixed(2)}

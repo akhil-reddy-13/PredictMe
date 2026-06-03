@@ -50,9 +50,9 @@ describe('psychometric fit', () => {
 
   it('finds a detection threshold when slope is positive', () => {
     const w: [number, number] = [-2, 4];
-    const t = detectionThreshold(w, 0.75);
+    const t = detectionThreshold(w, 0.5);
     expect(t).not.toBeNull();
-    expect(lrPredict(w, t!)).toBeCloseTo(0.75, 1);
+    expect(lrPredict(w, t!)).toBeCloseTo(0.5, 1);
   });
 });
 

@@ -114,7 +114,7 @@ function GhostModal({
                 : ''
             }
           >
-            <strong className="text-neutral-800">p-value (null draws):</strong>{' '}
+            <strong className="text-neutral-800">Simulation p-value:</strong>{' '}
             {ghost.pValue.toFixed(2)}
             {notSignificant
               ? ' — share of null draws at least this extreme; typical for noise.'

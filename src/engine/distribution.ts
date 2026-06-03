@@ -34,7 +34,7 @@ let cachedAlt: number[] | null = null;
 
 export function sampleCorrelationUnderNull(
   n = POINT_COUNT,
-  iterations = 2500
+  iterations = 5000
 ): number[] {
   if (cachedNull && cachedNull.length === iterations) return cachedNull;
   const out: number[] = [];

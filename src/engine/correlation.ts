@@ -89,7 +89,7 @@ export function correlationCriticalValue(
 export function simulationPValue(
   observedR: number,
   n = POINT_COUNT,
-  iterations = 4000
+  iterations = 5000
 ): number {
   const absObs = Math.abs(observedR);
   let extreme = 0;

@@ -44,10 +44,10 @@ export function psychometricCurve(
   return points;
 }
 
-/** Smallest rho > 0 where fitted P(say pattern) >= target. */
+/** Smallest rho > 0 where fitted P(say pattern) >= target (write-up uses 0.5). */
 export function detectionThreshold(
   weights: [number, number],
-  target = 0.75
+  target = 0.5
 ): number | null {
   const [bias, coef] = weights;
   if (Math.abs(coef) < 1e-6) return null;
