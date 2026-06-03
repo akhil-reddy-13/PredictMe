@@ -14,9 +14,7 @@ export function IntroScreen({ onContinue }: IntroScreenProps) {
         <div className="space-y-3 text-lg text-neutral-600">
           <p>you&apos;ll see scatterplots, one at a time.</p>
           <p>call it: pattern or noise.</p>
-          <p className="text-base text-neutral-500">
-            20 rounds (8 noise, 12 pattern). trust your eyes.
-          </p>
+          <p className="text-base text-neutral-500">20 rounds. trust your eyes.</p>
         </div>
         <button
           type="button"
